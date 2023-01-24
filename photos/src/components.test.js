@@ -3,7 +3,6 @@ import Star from './Star';
 import Home from './Home';
 import StarRating from './StarRating';
 import ColorProvider from './ColorProvider';
-import { useColors } from './ColorProvider';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 test('renders a star', () => {
