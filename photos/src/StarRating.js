@@ -1,4 +1,5 @@
 import Star from './Star';
+import PropTypes from 'prop-types';
 
 const createArray = (length) => [...Array(length)];
 
@@ -19,3 +20,9 @@ export default function StarRating({
     </>
   );
 }
+
+StarRating.propTypes = {
+  totalStars: PropTypes.number,
+  selectedStars: PropTypes.number,
+  onRate: PropTypes.func,
+};

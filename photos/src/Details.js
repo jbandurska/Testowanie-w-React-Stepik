@@ -2,8 +2,13 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import StarRating from './StarRating';
 import { useColors } from './ColorProvider';
+import PropTypes from 'prop-types';
 
-export default function Details() {
+export default function Details({
+  name = 'Animal',
+  letters = ['A', 'B'],
+  age = { dog: 5, cat: 3 },
+}) {
   const { colors, rateColor } = useColors();
   const { id } = useParams();
   const currImage = colors[id - 1];
@@ -23,6 +28,18 @@ export default function Details() {
       <Link to={`/?id=${currImage.id}`} className="go-back-button">
         Go Back
       </Link>
+      <div style={{ display: 'none' }}>
+        {name}
+        {letters.map((letter) => letter)}
+        {age.cat}
+        {age.dog}
+      </div>
     </div>
   );
 }
+
+Details.propTypes = {
+  name: PropTypes.string,
+  letters: PropTypes.array,
+  age: PropTypes.object,
+};
